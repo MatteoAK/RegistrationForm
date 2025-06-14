@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Formularz</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <div class="form-container">
+        <h1>Formularz rejestracyjny</h1>
+        <!-- <hr /> -->
+        <form id="registrationForm">
+            <label>
+                Imię:
+                <input type="text" name="firstName" required />
+            </label>
+            <br />
+
+            <label>
+                Email:
+                <input type="email" name="email" required />
+            </label>
+            <br />
+
+            <label>
+                Hasło:
+                <input type="password" name="password" required />
+            </label>
+            <br />
+
+            <p>Płeć:</p>
+            <label>
+                <input type="radio" name="gender" value="Mężczyzna" />Mężczyzna
+            </label>
+            <label>
+                <input type="radio" name="gender" value="Kobieta" />Kobieta
+            </label>
+
+            <p>Zainteresowania:</p>
+            <div class="hobbies" >
+                <label>
+                    <input type="checkbox" name="hobby" value="Muzyka" />Muzyka
+                </label>
+                <label> <input type="checkbox" name="hobby" value="Sport" />Sport </label>
+                <label>
+                    <input type="checkbox" name="hobby" value="Podróże" />Podróże
+                </label>
+                <label>
+                    <input type="checkbox" name="hobby" value="Gotowanie" />Gotowanie
+                </label>
+                <label>
+                    <input type="checkbox" name="hobby" value="Filmy i seriale" />Filmy i seriale
+                </label>
+                <label>
+                    <input type="checkbox" name="hobby" value="Skoki ze spadochronem" />Skoki ze spadochronem
+                </label>
+                <label>
+                    <input type="checkbox" name="hobby" value="Skoki bez spadochronu" />Skoki bez spadochronu
+                </label>
+                <br />
+            </div>
+
+            <p>O sobie:</p>
+            <textarea name="about" rows="4" column="40"></textarea><br />
+
+            <button type="submit">Wyślij</button>
+        </form>
+    </div>
+    <!-- tutaj dodajemy kod JS -->
+    <script>
+        const form = document.getElementById("registrationForm");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+
+            const firstName = formData.get("firstName");
+            const email = formData.get("email");
+            const password = formData.get("password");
+            const gender = formData.get("gender");
+            const about = formData.get("about");
+            const hobbies = formData.getAll("hobby");
+
+            alert(
+                `Imię: ${firstName}\nEmail: ${email}\nHasło: ${password}\nPłeć: ${gender}\nZainteresowania: ${hobbies.join(
+                    ", "
+                )}\nO sobie: ${about}`
+            );
+        });
+    </script>
+</body>
+
+</html>
