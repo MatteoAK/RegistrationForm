@@ -28,7 +28,7 @@ Click below to try it out live:
 
 ## 🎨 Screenshot
 
-[![Preview](https://raw.githubusercontent.com/MatteoAK/RegistrationForm/main/preview.png)](#preview)
+[![Preview](https://github.com/MatteoAK/RegistrationForm/blob/006d0411b8881e7f2cf9a0ccba28238834b7837a/preview.png)](#preview)
 
 ---
 
