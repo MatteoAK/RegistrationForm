@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Registration Form Example</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <div class="form-container">
+        <h1>Registration form</h1>
+        <!-- <hr /> -->
+        <form id="registrationForm">
+            <label>
+                Name:
+                <input type="text" name="firstName" required />
+            </label>
+            <br />
+
+            <label>
+                Email:
+                <input type="email" name="email" required />
+            </label>
+            <br />
+
+            <label>
+                Password:
+                <input type="password" name="password" required />
+            </label>
+            <br />
+
+            <p>Sex:</p>
+            <label>
+                <input type="radio" name="gender" value="Male" />Male
+            </label>
+            <label>
+                <input type="radio" name="gender" value="Female" />Female
+            </label>
+
+            <p>Hobby:</p>
+            <div class="hobbies" >
+                <label>
+                    <input type="checkbox" name="hobby" value="Music" />Music
+                </label>
+                <label> <input type="checkbox" name="hobby" value="Sport" />Sport </label>
+                <label>
+                    <input type="checkbox" name="hobby" value="Traveling" />Traveling
+                </label>
+                <label>
+                    <input type="checkbox" name="hobby" value="Cooking" />Cooking
+                </label>
+                <label>
+                    <input type="checkbox" name="hobby" value="Movies and TV Shows" />Movies and TV Shows
+                </label>
+                <label>
+                    <input type="checkbox" name="hobby" value="Parachute Jumping" />Parachute Jumping
+                </label>
+                <label>
+                    <input type="checkbox" name="hobby" value="Jumping wihtout parachute" />Jumping wihtout parachute
+                </label>
+                <br />
+            </div>
+
+            <p>About me:</p>
+            <textarea name="about" rows="4" column="40"></textarea><br />
+
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <!-- JS to show results of the form after Send buttom clicked -->
+    <script>
+        const form = document.getElementById("registrationForm");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+
+            const firstName = formData.get("firstName");
+            const email = formData.get("email");
+            const password = formData.get("password");
+            const gender = formData.get("gender");
+            const about = formData.get("about");
+            const hobbies = formData.getAll("hobby");
+
+            alert(
+                `Name: ${firstName}\nEmail: ${email}\nPassword: ${password}\nSex: ${gender}\nHobby: ${hobbies.join(
+                    ", "
+                )}\nAbout me: ${about}`
+            );
+        });
+    </script>
+</body>
+
+</html>
